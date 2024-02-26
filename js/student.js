@@ -7,6 +7,7 @@ function sign(){
     var secondClub1 = appliForm.secondClub1.options[appliForm.secondClub1.options.selectedIndex].value;
     var secondClub2 = appliForm.secondClub2.options[appliForm.secondClub2.options.selectedIndex].value;
     console.log(schoolNumber,name, firstClub1, firstClub2, secondClub1, secondClub2)
+
     if (!schoolNumber || !name || !firstClub1 || !firstClub2 || !secondClub1 || !secondClub2) {
         M.toast({html: '모두 입력하세요.',inDuration: 200, outDuration:200})
         return
@@ -20,6 +21,16 @@ function sign(){
         M.toast({html: '희망 동아리가 1개일 경우 2지망을 없음으로 표시하세요.',inDuration: 200, outDuration:200})
         return
     }
+
+    var ClubList = [firstClub1, firstClub2, secondClub1, secondClub2]
+    const ClubInfo = ["1지망 제1동아리", "2지망 제1동아리", "1지망 제2동아리", "2지망 제2동아리"]
+    for (var i = 0; i < ClubList.length(); i++) {
+        if (getDeadline(ClubList[i]) < Date.parse(Date())) {
+            M.toast({html: `${ClubInfo[i]} 의 신청 가능 기간이 끝나, 신청할 수 없습니다.`, inDuration: 200, outDuration:200})
+            return
+        }
+    }
+
     M.toast({html: '로딩중...',inDuration: 200, outDuration:200})
     fetch("https://script.google.com/macros/s/AKfycbykBSZN_j6GgkcGJdsDC60N8vCYk5h0fXzCCTs7knNpaoqXYg25JYUpsG69J7XW0a9qJQ/exec", {
     method: "POST",
@@ -43,6 +54,14 @@ function sign(){
     });
     return
     
+}
+
+function getDeadline(ClubName) {
+    return getSampleDeadline()
+}
+
+function getSampleDeadline() {
+    return Date.parse(Date())
 }
 
 function getResult(){
