@@ -17,10 +17,10 @@ function loadClubList(){
             var secondList = document.getElementById('secondList')
             firstClubExplain.innerHTML = ''
             secondClubExplain.innerHTML = ''
-            firstClub1.innerHTML = `<option value="" selected disabled hidden >선택해주세요.</option>`
-            firstClub2.innerHTML = `<option value="" selected disabled hidden >선택해주세요.</option>`
-            secondClub1.innerHTML = `<option value="" selected disabled hidden >선택해주세요.</option>`
-            secondClub2.innerHTML = `<option value="" selected disabled hidden >선택해주세요.</option>`
+            firstClub1.innerHTML = `<option value="" selected disabled hidden >1지망 제1동아리를 선택해주세요.</option>`
+            firstClub2.innerHTML = `<option value="" selected disabled hidden >2지망 제1동아리를 선택해주세요.</option>`
+            secondClub1.innerHTML = `<option value="" selected disabled hidden >1지망 제2동아리를 선택해주세요.</option>`
+            secondClub2.innerHTML = `<option value="" selected disabled hidden >2지망 제2동아리를 선택해주세요.</option>`
             for (let i in data) {
                 if (data[i].group == 1) {
                     firstList.innerHTML += `<div class="${i}" onclick="moveY(${i},1)">${data[i].name}</div>`
