@@ -36,9 +36,8 @@
 
 .clubIntro {
     margin: 17px;
-    height: 300px;
+    height: 200px;
     word-break: break-all;
-    overflow: hidden;
 }
 
 .clubInterview {
