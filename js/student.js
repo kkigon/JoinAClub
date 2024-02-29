@@ -102,30 +102,59 @@ function getResult(){
             var resultSecondClub2 = document.getElementById("resultSecondClub2");
             var myselfSecondClub2 = document.getElementById("myselfSecondClub2");
             var passOrNotSecondClub2 = document.getElementById("passOrNotSecondClub2");
+
             if (student.firstClub1 != "none"){
                 resultFirstClub1.innerHTML = data[student.firstClub1].name;
                 myselfFirstClub1.innerHTML = `<a href='${data[student.firstClub1].link}' target='_blank'>클릭</a>`;
                 passOrNotFirstClub1.innerHTML = student.passOrNotFirstClub1;
                 passOrNotFirstClub1.style.color = color(student.passOrNotFirstClub1);
             }
+            else {
+                resultFirstClub1.innerHTML = '-';
+                myselfFirstClub1.innerHTML = '-';
+                passOrNotFirstClub1.innerHTML = '-';
+                passOrNotFirstClub1.style.color = 'var(--black-color)';
+            }
+
             if (student.firstClub2 != "none") {
                 resultFirstClub2.innerHTML = data[student.firstClub2].name;
                 myselfFirstClub2.innerHTML = `<a href='${data[student.firstClub2].link}' target='_blank'>클릭</a>`;
                 passOrNotFirstClub2.innerHTML = student.passOrNotFirstClub2;
                 passOrNotFirstClub2.style.color = color(student.passOrNotFirstClub2);
             }
+            else {
+                resultFirstClub2.innerHTML = '-';
+                myselfFirstClub2.innerHTML = '-';
+                passOrNotFirstClub2.innerHTML = '-';
+                passOrNotFirstClub2.style.color = 'var(--black-color)';
+            }
+
             if (student.secondClub1 != "none") {
                 resultSecondClub1.innerHTML = data[student.secondClub1].name;
                 myselfSecondClub1.innerHTML = `<a href='${data[student.secondClub1].link}' target='_blank'>클릭</a>`;
                 passOrNotSecondClub1.innerHTML = student.passOrNotSecondClub1;
                 passOrNotSecondClub1.style.color = color(student.passOrNotSecondClub1);
             }
+            else {
+                resultSecondClub1.innerHTML = '-';
+                myselfSecondClub1.innerHTML = '-';
+                passOrNotSecondClub1.innerHTML = '-';
+                passOrNotSecondClub1.style.color = 'var(--black-color)';
+            }
+
             if (student.secondClub2 != "none") {
                 resultSecondClub2.innerHTML = data[student.secondClub2].name;
                 myselfSecondClub2.innerHTML = `<a href='${data[student.secondClub2].link}' target='_blank'>클릭</a>`;
                 passOrNotSecondClub2.innerHTML = student.passOrNotSecondClub2;
                 passOrNotSecondClub2.style.color = color(student.passOrNotSecondClub2);
             }
+            else {
+                resultSecondClub2.innerHTML = '-';
+                myselfSecondClub2.innerHTML = '-';
+                passOrNotSecondClub2.innerHTML = '-';
+                passOrNotSecondClub2.style.color = 'var(--black-color)';
+            }
+
         }).catch(() => {
             M.toast({html: '학번이 올바르지 않아요.',inDuration: 200, outDuration:200})
             console.log('error')
