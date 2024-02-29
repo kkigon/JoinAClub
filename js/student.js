@@ -25,7 +25,7 @@ function sign(){
     var ClubList = [firstClub1, firstClub2, secondClub1, secondClub2]
     const ClubInfo = ["1지망 제1동아리", "2지망 제1동아리", "1지망 제2동아리", "2지망 제2동아리"]
     for (var i = 0; i < ClubList.length; i++) {
-        if (getDeadline(ClubList[i]) < Date.parse(Date())) {
+        if (getDeadline(ClubList[i]).valueOf() < getToday().valueOf()) {
             M.toast({html: `${ClubInfo[i]} 의 신청 가능 기간이 끝나, 신청할 수 없습니다.`, inDuration: 200, outDuration:200})
             return
         }
@@ -60,8 +60,14 @@ function getDeadline(ClubName) {
     return getSampleDeadline()
 }
 
+// Hard-coded waiting for db fetch
+const DEADLINE = "2024-03-08T00:00:00.000+09:00"
 function getSampleDeadline() {
-    return Date.parse(Date())
+    return new Date(DEADLINE)
+}
+
+function getToday() {
+    return new Date()
 }
 
 function getResult(){
