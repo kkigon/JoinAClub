@@ -26,6 +26,7 @@ function sign(){
     const ClubInfo = ["1지망 제1동아리", "2지망 제1동아리", "1지망 제2동아리", "2지망 제2동아리"]
     for (var i = 0; i < ClubList.length; i++) {
         if (getDeadline(ClubList[i]).valueOf() < getToday().valueOf()) {
+            console.log(getDeadline(ClubList[i]).valueOf(), getToday().valueOf())
             M.toast({html: `${ClubInfo[i]} 의 신청 가능 기간이 끝나, 신청할 수 없습니다.`, inDuration: 200, outDuration:200})
             return
         }
