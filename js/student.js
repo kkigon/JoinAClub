@@ -61,7 +61,7 @@ function getDeadline(ClubName) {
 }
 
 // Hard-coded waiting for db fetch
-const DEADLINE = "2024-03-08T00:00:00.000+09:00"
+const DEADLINE = "2024-03-06T00:00:00.000+09:00"
 function getSampleDeadline() {
     return new Date(DEADLINE)
 }
